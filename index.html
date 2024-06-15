@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <title>Almacenar Usuarios</title>
+    <!-- Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container sign-in">
+            <form id="registroForm" onsubmit="guardar(); return false;">
+                <h1>Registrar participación</h1>
+                <span>Llenar todos los campos solicitados</span>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingresa nombre completo" required>
+                <input type="number" id="dpi" name="dpi" placeholder="Ingresa el DPI (13 dígitos)" required maxlength="13" oninput="validarLongitud(this, 13)">
+                <input type="tel" id="telefono" name="telefono" placeholder="Ingresa el número de teléfono (8 dígitos)" required maxlength="8" oninput="validarLongitud(this, 8)">
+                <input type="text" id="domicilio" name="domicilio" placeholder="Ingresa la dirección" required>
+                <div class="d-flex justify-content-between">
+                    <select class="form-select d-inline-block" id="genero" name="genero" aria-label="genero" required>
+                        <option value="">Género</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="masculino">Masculino</option>
+                    </select>
+                    <select class="form-select d-inline-block" id="actividad" name="actividad" aria-label="actividad" required>
+                        <option value="">Actividad</option>
+                        <option value="actividad1">Clase de yoga</option>
+                        <option value="actividad2">Club de lectura</option>
+                        <option value="actividad3">Taller de arte</option>
+                        <option value="actividad4">Taller de cocina</option>
+                    </select>
+                </div>
+                <button class="btn btn-info" id="boton" type="submit">Guardar</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-right">
+                    <h1>Gracias por preferirnos</h1>
+                    <p>Puedes visualizar tu registro</p>
+                    <button type="button" class="hidden" id="verRegistro" onclick="window.location.href='historial.php'">Ver registro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
